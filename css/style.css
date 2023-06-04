@@ -16,7 +16,9 @@ body{
     margin: 0 auto;
 }
 
-
+.pointer{
+    cursor: pointer;
+}
 
 .gallery img{
     display: none;

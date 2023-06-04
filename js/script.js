@@ -35,31 +35,46 @@ thumbImages[currentIndex].classList.add('shade');
 
 //metto in ascolto il next
 nextButton.addEventListener('click', function (){
-if(currentIndex === images.length - 1) return; 
-
+    if (currentIndex === images.length - 1) {
+    images[currentIndex].classList.remove('d-block');
+    thumbImages[currentIndex].classList.remove('shade');
+    currentIndex = 0;
+    images[currentIndex].classList.add('d-block');
+    thumbImages[currentIndex].classList.add('shade');
+    }
+    else if (currentIndex < sources.length){
     //rimuovo la classe block all'immagine con indice corrente
     images[currentIndex].classList.remove('d-block');
     thumbImages[currentIndex].classList.remove('shade');
-   
+    
     //incremento l'indice corrente
     currentIndex++;
-
+    
     //aggiungo la classe block alla nuova immagine corrente
     images[currentIndex].classList.add('d-block');
     thumbImages[currentIndex].classList.add('shade');
+}
 })
 
 prevButton.addEventListener('click', function (){
-if (!currentIndex) return;
+if (!currentIndex) {
+    images[currentIndex].classList.remove('d-block');
+    thumbImages[currentIndex].classList.remove('shade');
+    currentIndex = images.length - 1;
+    images[currentIndex].classList.add('d-block');
+    thumbImages[currentIndex].classList.add('shade');
+}
 
+else if (currentIndex > 0) {
     //rimuovo la classe block all'immagine con indice corrente
     images[currentIndex].classList.remove('d-block');
     thumbImages[currentIndex].classList.remove('shade');
-   
+    
     //decremento l'indice corrente
     currentIndex--;
-
+    
     //aggiungo la classe block alla nuova immagine corrente
     images[currentIndex].classList.add('d-block');
     thumbImages[currentIndex].classList.add('shade');
+}
 })
